@@ -27,28 +27,21 @@ function render(variables = {}) {
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
-  if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  if (variables.includeCover === false) cover = "<div class='cover'></div>";
 
-  // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
-  ${cover}
-  <img src="${variables.avatarURL}" class="photo" />
-  <h1>${variables.name || "first"} 
-  ${variables.lastName || "last"}
-   </h1>
-  <h2>${variables.profession || "Web Developer"}</h2>
-  <h3>${variables.location || "Miami, USA"}</h3>
-  <ul class="position-right">
-      <li><a href="${variables.twitter ||
-        "#"}"><i class="fab fa-twitter"></i></a></li>
-      <li><a href="${variables.github ||
-        "#"}"><i class="fab fa-github"></i></a></li>
-      <li><a href="${variables.linkedin ||
-        "#"}"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="${variables.instagram ||
-        "#"}"><i class="fab fa-instagram"></i></a></li>
-  </ul>
-</div>`;
+    ${cover}
+    <img src="${variables.avatarURL}" class="photo" />
+    <h1>${variables.name || "First"} ${variables.lastName || "Last"}</h1>
+    <h2>${variables.role || "Web Developer"}</h2>
+    <h3>${variables.city || "City"}, ${variables.country || "Country"}</h3>
+    <ul class="${variables.socialMediaPosition || "position-right"}">
+        <li><a href="${variables.twitter || "#"}"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="${variables.github || "#"}"><i class="fab fa-github"></i></a></li>
+        <li><a href="${variables.linkedin || "#"}"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="${variables.instagram || "#"}"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+  </div>`;
 }
 
 /**
